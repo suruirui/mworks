@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>照片墙</title>
+	<style>
+		.imgWrap{
+			width: 800px;
+			height: 400px;
+			margin: 0 auto;
+			perspective:800px;
+		}
+		img{
+			float: left;
+		}
+		.btn{
+			margin: 20px auto;
+			background: rgb(0, 100, 0); 
+			color: white;
+			padding: 10px 20px;
+			border-radius: 5px;
+			border: 0;
+			text-align:center;
+			font-family: "微软雅黑";
+			width: 100px;
+			box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+			cursor: pointer;
+		}
+		.btn:hover{
+			background: #ff5500;
+		}
+	</style>
+	<script>
+		/**
+		 * 运动的步骤 
+		 * 1.闪的效果 ：瞬间宽高都变为0，scale，执行时间随机 
+		 * 2.图片从小变大，同时透明度从1变到0 （上一步执行完开始执行）
+		 * 3.图片旋转，同时透明度从0变到1，有层次(位移translate) 当所有图片透明度都变为0的时候，开始执行）
+		 */
+		window.onload = function(){
+			var btn = document.getElementById("btn");
+			var imgs = document.querySelectorAll("img");
+			var on = true; //这个变量用来决定用户是否可以再次点击
+			// window.onscroll = function(){
+			btn.onclick = function(){
+				if(!on){
+					return;
+				}
+				on = false;
+				var endNum = 0; //运动完成的图片数量
+				var allEnd = 0;
+				for (var i = 0; i < imgs.length; i++) {
+					(function(i){  //函数声明式写法  保证i值能访问到
+							setTimeout(function(){
+							montion(imgs[i],'10ms',function(){
+								//一上来变小
+								this.style.transform='scale(0)';
+								this.style.opacity='0';
+							},function(){
+								// 第二个运动函数 变小之后再变大
+								montion(this,'1s',function(){
+									this.style.transform = 'scale(1)';
+									this.style.opacity='0';
+								},function(){
+									endNum++;
+									//变大并旋转
+									if(endNum == imgs.length){ //所以图片都运动完的时候执行最后的效果toBig
+										console.log(endNum);
+										toBig();  
+									}
+								});
+							});
+						},Math.random()*1000);
+					})(i);
+				}
+				function toBig(){
+					//这个函数做第三个效果
+					/*坐标轴 X轴 平行地面 Y轴垂直地面  Z轴垂直屏幕*/
+					for (var i = 0; i < imgs.length; i++) {
+						imgs[i].style.transition = ' ';
+						//先给一个初始值
+						// imgs[i].style.transform='rotateY(0deg) translateZ(-'+Math.random()*500+'px)';
+						imgs[i].style.transform='rotateY(0deg) translateZ(-'+Math.random()*500+'px)';
+						//用函数声明的方式去写，是因为想要在循环里面找i的值
+						(function(i){
+							setTimeout(function(){
+								montion(imgs[i],'2s',function(){
+									this.style.opacity = 1;
+									this.style.transform= 'rotateY(-360deg) translateZ(0)';
+								},function(){
+									//避免用户连续点击
+									allEnd++;
+									if(allEnd==imgs.length){
+										on=true;
+									}
+							});
+							},Math.random()*1000);
+						})(i);
+					}
+				}
+			};
+
+			//move function
+			function montion(obj,time,doFn,callBack){
+				obj.style.transition = time;
+				doFn.call(obj);	 //调用函数，并把this的指向给obj
+
+				var called = false;  //解决transitionend调用多次的bug
+				obj.addEventListener('transitionend',function(){
+					if(!called){
+						callBack&&callBack.call(obj);
+						called = true;
+					}
+				},false);
+			}
+		};
+	</script>
+</head>
+<body>
+	<div class="imgWrap">
+		<img src="images/1.jpg" alt="">
+		<img src="images/2.jpg" alt="">
+		<img src="images/3.jpg" alt="">
+		<img src="images/4.jpg" alt="">
+		<img src="images/5.jpg" alt="">
+		<img src="images/6.jpg" alt="">
+		<img src="images/7.jpg" alt="">
+		<img src="images/8.jpg" alt="">
+		<img src="images/9.jpg" alt="">
+		<img src="images/10.jpg" alt="">
+		<img src="images/11.jpg" alt="">
+		<img src="images/12.jpg" alt="">
+		<img src="images/13.jpg" alt="">
+		<img src="images/14.jpg" alt="">
+		<img src="images/15.jpg" alt="">
+		<img src="images/16.jpg" alt="">
+		<img src="images/17.jpg" alt="">
+		<img src="images/18.jpg" alt="">
+		<img src="images/19.jpg" alt="">
+		<img src="images/20.jpg" alt="">
+		<img src="images/21.jpg" alt="">
+		<img src="images/22.jpg" alt="">
+		<img src="images/23.jpg" alt="">
+		<img src="images/24.jpg" alt="">
+		<img src="images/25.jpg" alt="">
+		<img src="images/26.jpg" alt="">
+		<img src="images/27.jpg" alt="">
+		<img src="images/28.jpg" alt="">
+		<img src="images/29.jpg" alt="">
+		<img src="images/30.jpg" alt="">
+		<img src="images/31.jpg" alt="">
+		<img src="images/32.jpg" alt="">
+		<img src="images/33.jpg" alt="">
+		<img src="images/34.jpg" alt="">
+		<img src="images/35.jpg" alt="">
+		<img src="images/36.jpg" alt="">
+		<img src="images/37.jpg" alt="">
+		<img src="images/38.jpg" alt="">
+		<img src="images/39.jpg" alt="">
+		<img src="images/40.jpg" alt="">
+		<img src="images/41.jpg" alt="">
+		<img src="images/42.jpg" alt="">
+		<img src="images/43.jpg" alt="">
+		<img src="images/44.jpg" alt="">
+		<img src="images/45.jpg" alt="">
+		<img src="images/46.jpg" alt="">
+		<img src="images/47.jpg" alt="">
+		<img src="images/48.jpg" alt="">
+		<img src="images/49.jpg" alt="">
+		<img src="images/50.jpg" alt="">
+	</div>
+	<div id= "btn" class="btn">点击查看效果</div>
+</body>
+</html>
