@@ -1,0 +1,83 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+/*全局div 设置宽高  垂直居中*/
+.global{
+  margin: auto;
+  width: 300px;
+  height: 300px;
+  position:relative;
+  position: absolute;  /*绝对定位*/
+  top: 0;left: 0;bottom: 0;right: 0;
+}
+
+/*使用定位来确定各个div位置 宽高都为98 加上border边框，最后宽高都为100*/
+/*左边*/
+.left{
+   width: 98px;
+   height: 98px;
+   position: absolute;
+   background-color: green;
+   left:0;
+   top: 100px;
+   border: solid 1px orange;
+   box-shadow: 5px 5px #B0C953;
+
+}
+/*上边*/
+.up{
+   width: 98px;
+   height: 98px;
+   position: absolute;
+   background-color: green;
+   left:100px;
+   top: 0;
+   border: solid 1px orange;
+    box-shadow: 5px 5px #B0C953;
+}
+/*中间*/
+.center{
+   width: 98px;
+   height: 98px;
+   position: absolute;
+   border: solid 1px orange;
+   left:100px;
+   top: 100px;
+    box-shadow: 5px 5px #B0C953;
+   text-align: center;
+}
+
+/*中间div小图标*/
+img{
+ margin: auto;
+ position: absolute;
+ top: 0;left: 0;bottom: 0;right: 0;
+}
+
+/*右边*/
+.right{
+   width: 98px;
+   height: 98px;
+   position: absolute;
+   background-color: green;
+   border: solid 1px orange;
+   top: 100px;
+   left: 200px;
+    box-shadow: 5px 5px #B0C953;
+}
+/*下边*/
+.down{
+   width: 98px;
+   height: 98px;
+   position: absolute;
+   background-color: green;
+   bottom:0;
+   left: 100px;
+   border: solid 1px orange;
+   box-shadow: 5px 5px #B0C953;
+}
+
+
+

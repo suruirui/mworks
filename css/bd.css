@@ -1,0 +1,148 @@
+body{
+	margin: 0px;
+    padding: 0px;
+
+}
+.list{
+    width: 700px;
+    height: 30px;
+    position: relative;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+
+.list ul{
+	width: 520px;
+	height: 30px;
+	float: left;
+	position: absolute;
+	right: 0px;
+}
+
+.list ul li{
+     list-style: none;
+     float: left;
+     margin-left: 25px;
+}
+
+.list ul li a{
+	color: #333333;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+.list ul li a:hover{
+    color: blue;
+}
+
+.morePro{
+	width: 60px;
+	height: 25px;
+	background-color: #3388FF;
+	font-size: 13px;
+	text-align: center;
+	display: block;
+	float: right;
+	text-decoration: none;
+	line-height: 25px;
+}
+
+article{
+	 text-align: center;
+}
+.logo{
+   width: 280px;
+   margin-top: 170px;
+   background-color: #0f0;
+}
+.main{
+	width: 647px;
+	height: 40px;
+	margin: 0 auto;
+	margin-top: 20px;
+}
+.search{
+	width: 540px;
+	height: 34px;
+	font-size: 18px;
+	float: left;
+}
+
+.bd{
+	width: 101px;
+	height: 40px;
+	margin-right: 0px;
+	background-color: #3385FF;
+	color: #fff;
+	font-size: 14px;
+	text-align: center;
+	float: left;
+	border: solid 1px #4791FF;
+
+}
+
+.foot{
+	width: 645px;
+	height: 65px;
+	margin: 0 auto;
+	margin-top:460px; 
+	font-size: 12px;
+	/*position: relative;*/
+}
+
+.left{
+	width: 155px;
+	height: 65px;
+	position:relative;
+	float: left;
+}
+
+.left h6{
+    position: absolute;
+    bottom: 8px;
+    right: 30px;
+    color: #666666;
+}
+
+.left p{
+    position: absolute;
+     bottom: 3px;
+    right: 30px;
+    color: #999999;
+}
+.center{
+	width: 155px;
+	height: 65px;
+	position:relative;
+	float: left;
+}
+
+.center h6{
+    position: absolute;
+    bottom: 8px;
+    right: 30px;
+    color: #666666;
+}
+
+.center p{
+    position: absolute;
+     bottom: 3px;
+    right: 30px;
+    color: #999999;
+}
+.right{
+	width: 335px;
+	height: 65px;
+	position: relative;
+	color: #999999;
+	font-size: 12px;
+	float: left;
+}
+.right p{
+	position: absolute;
+   line-height:19px;
+}
+.right a{
+	color: #999999;
+}
